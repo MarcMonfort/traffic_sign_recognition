@@ -1,7 +1,7 @@
 clc
 clear
 
-DATA = [0 0]
+DATA = []
 
 D = '~/Documents/MATLAB/Imatges-20201122/Train/'
 S = dir(fullfile(D, '*'));
@@ -17,7 +17,13 @@ for ii = 1:numel(N)
         
         I = imread(F);
         
-        DATA = [DATA; getCircle(I) num2circle(str2num(N{ii}))];
+        imageFeature = [getFeatures(I) num2colorForm(str2num(N{ii}))];
+        
+        if isempty(DATA)
+            DATA = imageFeature;
+        else
+            DATA = [DATA; imageFeature];
+        end
         % do whatever with file F.
     end
 end
