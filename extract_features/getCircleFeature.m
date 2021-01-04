@@ -1,4 +1,4 @@
-function [metricStrong] = getCircle(image)
+function [metricStrong] = getCircleFeature(image)
     I = image;
        
     
