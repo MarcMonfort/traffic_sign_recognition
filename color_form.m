@@ -22,19 +22,6 @@ figure; imshow(BW)
 CC = bwconncomp(BW);
 
 
-% HOUGH 
 
-[rows, columns] = size(BW);
-max_radi = floor(min(rows, columns)/2);
-min_radi = floor(max_radi/3)
-
-[centers, radii, metric] = imfindcircles(I,[min_radi max_radi], 'Sensitivity', 0.99);
-
-centersStrong5 = centers(1,:); 
-radiiStrong5 = radii(1);
-metricStrong5 = metric(1);
-
-
-viscircles(centersStrong5, radiiStrong5,'EdgeColor','b');
 
 
