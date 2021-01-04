@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-function [metricStrong, max_radi] = find_circle_hough(File)%File must be an image
-    I = imread(File);
-    %I = imlocalbrighten(I,0.8);
-
-    imshow(I)
-
-
-
-
+function [metricStrong] = getCircle(image)
+    I = image;
+       
+    
     % HOUGH 
 
     [rows, columns] = size(I(:,:,1));
@@ -20,30 +14,19 @@ function [metricStrong, max_radi] = find_circle_hough(File)%File must be an imag
     [centers, radii, metric] = imfindcircles(I,[min_radi max_radi], 'Sensitivity', 0.95);
 
     metricStrong = 0;
-    centersStrong = [0 0];
-    radiiStrong = 0;
 
     for i = 1:size(centers, 1)
-        centers(i,:);
-
         dist_x = abs(centers(i,1) - center_x);
         dist_y = abs(centers(i,2) - center_y);
 
         if dist_x < columns/5 && dist_y < rows/5
             metricStrong = metric(i);
-            centersStrong = centers(i,:);
-            radiiStrong = radii(i);
-            i;
             break
         end
     end
 
-
-    %metricStrong = metric(1); % Valor importante para el vector de features. y tambien max_radi
-
-
-
+    
+    
+end
 
 
-    %viscircles(centersStrong, radiiStrong,'EdgeColor','b');
-end 
