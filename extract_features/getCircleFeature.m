@@ -6,7 +6,7 @@ function [metricStrong] = getCircleFeature(image)
 
     [rows, columns] = size(I(:,:,1));
     max_radi = floor(min(rows, columns)/2);
-    min_radi = floor(max_radi/3);
+    min_radi = max(floor(max_radi/3), 6);
 
     center_x = columns/2;
     center_y = rows/2;

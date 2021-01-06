@@ -1,10 +1,17 @@
 clc
 clear
 
-DATA = []
+DATASET = [];
+
+colorFeatures = [];
+circleFeatures = [];
+HogFeatures = [];
+SurfFeatures = [];
+
+imageLabel = [];
 
 D = '~/Documents/MATLAB/Imatges-20201122/Train/'
-S = dir(fullfile(D, '*'));
+S = dir(fullfile(D, '*'))
 N = setdiff({S([S.isdir]).name}, {'.','..'}); % list of subfolders of D.
 for ii = 1:numel(N)
     T = dir(fullfile(D, N{ii}, '*29.png')); 
@@ -17,13 +24,13 @@ for ii = 1:numel(N)
         
         I = imread(F);
         
-        imageFeature = [getFeatures(I) num2colorForm(str2num(N{ii}))];
+        %colorFeatures = [colorFeatures; getColorFeature(I)];
+        circleFeatures = [circleFeatures; getCircleFeature(I)];
+
+        imageLabel = [imageLabel;  num2circle(str2num(N{ii})) ];
         
-        if isempty(DATA)
-            DATA = imageFeature;
-        else
-            DATA = [DATA; imageFeature];
-        end
-        % do whatever with file F.
     end
 end
+
+
+DATASET = table(circleFeatures, imageLabel);

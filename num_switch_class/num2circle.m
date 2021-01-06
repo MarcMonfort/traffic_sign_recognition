@@ -1,91 +1,91 @@
 function [class] = num2circle(num)
     switch num
         case 0
-            class = 0;
+            class = "Circular";
         case 1
-            class = 0;
+            class = "Circular";
         case 2
-            class = 0;
+            class = "Circular";
         case 3
-            class = 0;
+            class = "Circular";
         case 4
-            class = 0;
+            class = "Circular";
         case 5
-            class = 0;
+            class = "Circular";
         case 6
-            class = 0;
+            class = "Circular";
         case 7
-            class = 0;
+            class = "Circular";
         case 8
-            class = 0;
+            class = "Circular";
         case 9
-            class = 0;
+            class = "Circular";
         case 10
-            class = 0;
+            class = "Circular";
         case 11
-            class = 1;
+            class = "NO-Circular";
         case 12
-            class = 1;
+            class = "NO-Circular";
         case 13
-            class = 1;
+            class = "NO-Circular";
         case 14
-            class = 1;
+            class = "NO-Circular";
         case 15
-            class = 0;
+            class = "Circular";
         case 16
-            class = 0;
+            class = "Circular";
         case 17
-            class = 0;
+            class = "Circular";
         case 18
-            class = 1;
+            class = "NO-Circular";
         case 19
-            class = 1;
+            class = "NO-Circular";
         case 20
-            class = 1;
+            class = "NO-Circular";
         case 21
-            class = 1;
+            class = "NO-Circular";
         case 22
-            class = 1;
+            class = "NO-Circular";
         case 23
-            class = 1;
+            class = "NO-Circular";
         case 24
-            class = 1;
+            class = "NO-Circular";
         case 25
-            class = 1;
+            class = "NO-Circular";
         case 26
-            class = 1;
+            class = "NO-Circular";
         case 27
-            class = 1;
+            class = "NO-Circular";
         case 28
-            class = 1;
+            class = "NO-Circular";
         case 29
-            class = 1;
+            class = "NO-Circular";
         case 30
-            class = 1;
+            class = "NO-Circular";
         case 31
-            class = 1;
+            class = "NO-Circular";
         case 32
-            class = 0;
+            class = "Circular";
         case 33
-            class = 0;
+            class = "Circular";
         case 34
-            class = 0;
+            class = "Circular";
         case 35
-            class = 0;
+            class = "Circular";
         case 36
-            class = 0;
+            class = "Circular";
         case 37
-            class = 0;
+            class = "Circular";
         case 38
-            class = 0;
+            class = "Circular";
         case 39
-            class = 0;
+            class = "Circular";
         case 40
-            class = 0;
+            class = "Circular";
         case 41
-            class = 0;
+            class = "Circular";
         case 42
-            class = 0;
+            class = "Circular";
 
 
     end
