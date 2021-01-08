@@ -12,15 +12,15 @@ D = '~/Documents/MATLAB/Traffic_images/Train-0-15-29/'
 
 setDir  = fullfile(D);
 imds = imageDatastore(setDir,'IncludeSubfolders',true,'LabelSource','foldernames');
-bag = bagOfFeatures(imds);
+%bag = bagOfFeatures(imds);
 
 while hasdata(imds)
     img = read(imds);
     
     colorFeatures = [colorFeatures; getColorFeature(img)];
-    circleFeatures = [circleFeatures; getCircleFeature(img)];
+    %circleFeatures = [circleFeatures; getCircleFeature(img)];
     hogFeatures = [hogFeatures; getHogFeature(img)];
-    surfFeatures = [surfFeatures; encode(bag, img)];
+    %surfFeatures = [surfFeatures; encode(bag, img)];
     
 
 end
@@ -31,8 +31,12 @@ end
         
 %imds.Labels = arrayfun(@num2form, imds.Labels);
 
-        
-        
 
+% DATASET = table(colorFeatures, hogFeatures);
 
-%DATASET = table(surfFeatures, imds.Labels);
+DATASET = [colorFeatures hogFeatures];
+
+classifier = fitcecoc(DATASET, imds.Labels);
+
+save('traffic_sign_classifier.mat', 'classifier');
+

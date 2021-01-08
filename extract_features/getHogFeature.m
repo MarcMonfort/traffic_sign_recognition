@@ -21,6 +21,6 @@ function [hog_vector] = getHogFeature(img)
     
     % Get HOG fetures
     
-    hog_vector = extractHOGFeatures(img,'CellSize',[8 8]);
+    hog_vector = extractHOGFeatures(img,'CellSize',[16 16]);
 
 end
