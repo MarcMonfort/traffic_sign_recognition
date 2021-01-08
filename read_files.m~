@@ -17,22 +17,21 @@ bag = bagOfFeatures(imds);
 while hasdata(imds)
     img = read(imds);
     
-    colorFeatures = [colorFeatures; getColorFeature(img)];
-    circleFeatures = [circleFeatures; getCircleFeature(img)];
-    hogFeatures = [hogFeatures; getHogFeature(img)];
-    surfFeatures = [surfFeatures; encode(bag, img)];
+    %colorFeatures = [colorFeatures; getColorFeature(img)];
+    %circleFeatures = [circleFeatures; getCircleFeature(img)];
+    %hogFeatures = [hogFeatures; getHogFeature(img)];
     
 
 end
 
 
-%imds.Labels = arrayfun(@(x) str2double(char(x)), imds.Labels);
+imds.Labels = arrayfun(@(x) str2double(char(x)), imds.Labels);
         
         
-%imds.Labels = arrayfun(@num2form, imds.Labels);
+imds.Labels = arrayfun(@num2circle, imds.Labels);
 
         
         
 
 
-%DATASET = table(surfFeatures, imds.Labels);
+DATASET = table(colorFeatures, imds.Labels);
