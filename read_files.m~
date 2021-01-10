@@ -1,12 +1,12 @@
 clc
-clear all
-close all
+clear
 
 colorFeatures = [];
+circleFeatures = [];
 hogFeatures = [];
+surfFeatures = [];
 
-% houghFeatures = [];
-% surfFeatures = [];
+imageLabels = [];
 
 D = '~/Documents/MATLAB/Traffic_images/Train-0-15-29/'
 
@@ -16,13 +16,27 @@ imds = imageDatastore(setDir,'IncludeSubfolders',true,'LabelSource','foldernames
 
 while hasdata(imds)
     img = read(imds);
+    
     colorFeatures = [colorFeatures; getColorFeature(img)];
+    %circleFeatures = [circleFeatures; getHoughFeature(img)];
     hogFeatures = [hogFeatures; getHogFeature(img)];
-    %houghFeatures = [houghFeatures; getHoughFeature(img)];
     %surfFeatures = [surfFeatures; encode(bag, img)];
+    
+
 end
 
+
+%imds.Labels = arrayfun(@(x) str2double(char(x)), imds.Labels);
+        
+        
+%imds.Labels = arrayfun(@num2form, imds.Labels);
+
+
+% DATASET = table(colorFeatures, hogFeatures);
+
 DATASET = [colorFeatures hogFeatures];
+
 classifier = fitcecoc(DATASET, imds.Labels);
+
 save('traffic_sign_classifier.mat', 'classifier');
 

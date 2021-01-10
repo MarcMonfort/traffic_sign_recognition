@@ -1,14 +1,8 @@
 function [class] = classify_traffic_sign(img)
 
-
-
     load('traffic_sign_classifier.mat');
     
-    
-    %load traffic_sign_classifier;
-
     features = [getColorFeature(img) getHogFeature(img)];
-        
     class = predict(classifier, features);
     
     subplot(1,2,1);
@@ -19,7 +13,5 @@ function [class] = classify_traffic_sign(img)
     detected = imread(join( [char(class), '.png'] ) );
     imshow(detected);
     title('Detected Traffic Sign')
-
-
 
 end
